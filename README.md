@@ -11,3 +11,10 @@ This study repository is a Node.js application.
 
 1. Api 
 2. Forms
+
+
+function fatDados() {
+    await = fetch('https://api.simplespdv.com.br/datasnap/rest/TSMReceber/Receber//19869407000188///0/').then(
+        (json) => {console.log(json)}
+    ).catch(console.error) 
+};
