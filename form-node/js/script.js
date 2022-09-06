@@ -52,28 +52,27 @@ class Produto {
 
             let newRow = tbody.insertRow(-1) //linha
 
-            //ID
-            let colunaID = newRow.insertCell(0)
-            colunaID.appendChild(document.createTextNode(this.arrayProdutos[i].id))
+            let colunaId = newRow.insertCell(0)
+            colunaId.appendChild(document.createTextNode(this.arrayProdutos[i].id))
 
-            //Nome
-            let colunaNome = newRow.insertCell(1) //id
+            let colunaNome = newRow.insertCell(1)
             colunaNome.appendChild(document.createTextNode(this.arrayProdutos[i].nomeProduto))
 
-            let colunaPreco = newRow.insertCell(2) //id
+            let colunaPreco = newRow.insertCell(2)
             colunaPreco.appendChild(document.createTextNode(this.arrayProdutos[i].precoProduto))
 
-            let colunaAcoes = newRow.insertCell(3) //id
+            let colunaAcoes = newRow.insertCell(3)
             let imgEdit = document.createElement('img')
-            imgEdit.src = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg'
+            imgEdit.src = '#',
             imgEdit.setAttribute('onclick', 'produto.editar(' + this.arrayProdutos[i].id + ')')
 
             let imgDelete = document.createElement('img')
-            imgDelete.src = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg'
+            imgDelete.src = '#'
             imgDelete.setAttribute('onclick', 'produto.deletar(' + this.arrayProdutos[i].id + ')')
-
             colunaAcoes.appendChild(imgEdit)
             colunaAcoes.appendChild(imgDelete)
+
+            
 
         }
     }
