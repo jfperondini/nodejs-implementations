@@ -1,5 +1,5 @@
 <h1>
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="https://medium.com/thdesenvolvedores/node-js-o-que-%C3%A9-por-que-usar-e-primeiros-passos-1118f771b889" />
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="https://medium.com/@diomalta/como-organizar-e-estruturar-projetos-com-node-js-4845be004899" />
 </h1>
 
 # Node.js Study
