@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: burlywood;
+
+}
+
+section {
+    margin: 100px auto;
+    width: 450px;
+
+}
+
+h1 {
+    font-size: 25px;
+    color: #1F2831;
+    margin-bottom: 5px;
+}
+
+label {
+    font-size: 15px;
+    color: #1F2831;
+}
+
+input,
+.add,
+.calc {
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+
+input {
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    opacity: .65;
+    margin-top: 5px;
+}
+
+
+.calc {
+    background-color: #1F2831;
+    color: #FBFBFB;
+    padding: 10px 20px;
+    text-align: center;
+    width: 220px;
+    height: 40px;
+    justify-content: center;
+}

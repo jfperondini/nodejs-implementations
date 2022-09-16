@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section>
+        <h1>Quem bebeu e comeu?</h1>
+        <form id="form"></form>
+        <div>
+            <label>Preço da Comida</label>
+            <input type="nome" name="nome" id="priceFood" autocomplete="off">
+            <label>Quantas pessos comeu?</label>
+            <input type="number" name="number" id="food" autocomplete="off">
+        </div>    
+        <br>
+        <div>
+            <label>Preço da Bebida</label>
+            <input type="nome" name="nome" id="priceDrink" autocomplete="off">
+            <label>Quantas pessoas comeu e bebeu?</label>
+            <input type="number" name="number" id="drink" autocomplete="off">
+        </div>
+        
+        <input type="button" onClick="calculateEatDrinkBy()" Value="Calcular" />
+        <p>Somente Comida: 
+            <span id="resultFood"></span>
+        </p>
+        <p>Comida e Bebida: 
+            <span id="resultFoodDrink"></span>
+        </p>
+        
+    </section>
+    <script src="js/calculate.js"></script>
+</body>
+
+</html>
