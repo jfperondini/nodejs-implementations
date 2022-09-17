@@ -1,21 +1,30 @@
 class Produto {
     constructor() {
-        this.id = 1
+        this.idProduto = 1
         this.arrayProdutos = []
-        this.editId = null
+        this.editIdProduto = null
     }
 
     salvar() {
         let prod = this.lerDados()
         if (this.validaCampos(prod) == true) {
-            if (this.editId == null){
+            if (this.editIdProduto == null){
             this.adicionar(prod)
-            } else { this.atualizar(this.editId, this.prod)
+            } else { this.atualizar(this.editIdProduto, this.prod)
         }   
         console.log(this.arrayProdutos)
         this.listaTabela()
         this.cancelar()    
         }
+    }
+
+
+    cancelar() {
+        document.getElementById('produto').value = ''
+        document.getElementById('preco').value = ''
+        document.getElementById('mudarNameBtn').innerText = 'Salvar'
+        this.editIdProduto = null
+
     }
 
     adicionar(prod) {
@@ -24,9 +33,39 @@ class Produto {
         this.id++
     }
 
+    editar(idEditar) {
+        this.editIdProduto = idEditar.idProduto;
+
+        document.getElementById('produto').value = idEditar.nomeProduto
+        document.getElementById('preco').value = idEditar.nomePreco
+
+        document.getElementByid('mudarNameBtn').innerText = 'Atualizar'
+
+    }
+
+    atualizar(idAtualizar, prod) {
+        for (let i = 0; i < this.arrayProdutos.length; i++) {
+            if (this.arrayProdutos[i].idProduto == idAtualizar) {
+                this.arrayProdutos[i].nomeProduto = prod.nomeProduto
+                this.arrayProdutos[i].precoProduto = prod.precoProduto
+            }
+
+        }
+    }
+
+    deletar(idDelete) {
+        let tbody = document.getElementById('tbody')
+        for (let i = 0; i < this.arrayProdutos.length; i++) {
+            if (this.arrayProdutos[i].idProduto === idDelete) {
+                this.arrayProdutos.splice(i, 1)
+                tbody.deleteRow(i)
+            }
+        }
+    }
+
     lerDados() {
         let prod = {}
-        prod.id = this.id
+        prod.idProduto = this.idProduto
         prod.nomeProduto = document.getElementById('produto').value
         prod.precoProduto = document.getElementById('preco').value
         return prod
@@ -56,7 +95,7 @@ class Produto {
             let newRow = tbody.insertRow(-1) //linha
 
             let colunaId = newRow.insertCell(0)
-            colunaId.appendChild(document.createTextNode(this.arrayProdutos[i].id))
+            colunaId.appendChild(document.createTextNode(this.arrayProdutos[i].idProduto))
             colunaId.classList.add('center') 
 
             let colunaNome = newRow.insertCell(1)
@@ -72,7 +111,7 @@ class Produto {
 
             let imgDelete = document.createElement('img')
             imgDelete.src = '#'
-            imgDelete.setAttribute('onclick', 'produto.deletar(' + this.arrayProdutos[i].id + ')')
+            imgDelete.setAttribute('onclick', 'produto.deletar(' + this.arrayProdutos[i].idProduto + ')')
             
             colunaAcoes.appendChild(imgEdit)
             colunaAcoes.appendChild(imgDelete)
@@ -80,44 +119,6 @@ class Produto {
         }
     }
 
-    cancelar() {
-        document.getElementById('produto').value = ''
-        document.getElementById('preco').value = ''
-
-        document.getElementById('mudarNameBtn').innerText = 'Salvar'
-        this.editId = null
-
-    }
-
-    deletar(idDelete) {
-        let tbody = document.getElementById('tbody')
-        for (let i = 0; i < this.arrayProdutos.length; i++) {
-            if (this.arrayProdutos[i].id === idDelete) {
-                this.arrayProdutos.splice(i, 1)
-                tbody.deleteRow(i)
-            }
-        }
-    }
-
-    editar(idEditar) {
-        this.editId = idEditar.id;
-
-        document.getElementById('produto').value = idEditar.nomeProduto
-        document.getElementById('preco').value = idEditar.nomePreco
-
-        document.getElementByid('mudarNameBtn').innerText = 'Atualizar'
-
-    }
-
-    atualizar(idAtualizar, prod) {
-        for (let i = 0; i < this.arrayProdutos.length; i++) {
-            if (this.arrayProdutos[i].id == idAtualizar) {
-                this.arrayProdutos[i].nomeProduto = prod.nomeProduto
-                this.arrayProduto[i].precoProduto = prod.precoProduto
-            }
-
-        }
-    }
 }
 
 
