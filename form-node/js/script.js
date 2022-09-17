@@ -2,20 +2,24 @@ class Produto {
     constructor() {
         this.id = 1
         this.arrayProdutos = []
+        this.editId = null
     }
 
     salvar() {
         let prod = this.lerDados()
         if (this.validaCampos(prod) == true) {
+            if (this.editId == null){
             this.adicionar(prod)
+            } else { this.atualizar(this.editId, this.prod)
         }   
         console.log(this.arrayProdutos)
         this.listaTabela()
-        this.cancelar()
-            
+        this.cancelar()    
+        }
     }
 
     adicionar(prod) {
+        prod.preco = parseFloat(prod.precoProduto)        
         this.arrayProdutos.push(prod)
         this.id++
     }
@@ -53,32 +57,35 @@ class Produto {
 
             let colunaId = newRow.insertCell(0)
             colunaId.appendChild(document.createTextNode(this.arrayProdutos[i].id))
+            colunaId.classList.add('center') 
 
             let colunaNome = newRow.insertCell(1)
             colunaNome.appendChild(document.createTextNode(this.arrayProdutos[i].nomeProduto))
-
+                
             let colunaPreco = newRow.insertCell(2)
             colunaPreco.appendChild(document.createTextNode(this.arrayProdutos[i].precoProduto))
 
             let colunaAcoes = newRow.insertCell(3)
             let imgEdit = document.createElement('img')
             imgEdit.src = '#',
-            imgEdit.setAttribute('onclick', 'produto.editar(' + this.arrayProdutos[i].id + ')')
+            imgEdit.setAttribute('onclick', 'produto.editar(' + JSON.stringify(this.arrayProdutos[i]) + ')')
 
             let imgDelete = document.createElement('img')
             imgDelete.src = '#'
             imgDelete.setAttribute('onclick', 'produto.deletar(' + this.arrayProdutos[i].id + ')')
+            
             colunaAcoes.appendChild(imgEdit)
             colunaAcoes.appendChild(imgDelete)
-
-            
 
         }
     }
 
     cancelar() {
-        prod.nomeProduto = document.getElementById('produto').value = ''
-        prod.precoProduto = document.getElementById('preco').value = ''
+        document.getElementById('produto').value = ''
+        document.getElementById('preco').value = ''
+
+        document.getElementById('mudarNameBtn').innerText = 'Salvar'
+        this.editId = null
 
     }
 
@@ -92,10 +99,27 @@ class Produto {
         }
     }
 
-    //editar(idEditar) {
-    //document.getElementById('produto').value = this.arrayProdutos[idEditar].id
+    editar(idEditar) {
+        this.editId = idEdit.id;
 
-    //}
+        document.getElementById('produto').value = idEditar.nomeProduto
+        document.getElementById('preco').value = idEditar.nomePreco
+
+        document.getElementByid('mudarNameBtn').innerText = 'Atualizar'
+
+    }
+
+    atualizar(idAtualizar, prod) {
+        for (let i = 0; i < this.arrayProdutos.length; i++) {
+            if (this.arrayProdutos[i].id == idAtualizar) {
+                this.arrayProdutos[i].nomeProduto = prod.nomeProduto
+                this.arrayProduto[i].precoProduto = prod.precoProduto
+            }
+
+        }
+    }
 }
+
+
 
 let produto = new Produto()
