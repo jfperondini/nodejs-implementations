@@ -8,8 +8,10 @@ function calculateEatDrinkBy() {
     resultDrink = document.getElementById("resultFood").innerHTML = parseFloat
     ((princeDrink / personDrink).toFixed(2))
 
+    n = 0
+    
     if(isNaN(resultDrink)) {
-        return resultDrink = 0
+        return resultDrink = n
     }
 
     priceFood = document.getElementById("priceDrink").value
@@ -19,7 +21,7 @@ function calculateEatDrinkBy() {
     (((priceFood / personFood) + resultDrink).toFixed(2))
 
     if(isNaN(resultDrinkFood)) { 
-        return resultDrinkFood = 0
+        return resultDrinkFood = n
     }
 };
 
