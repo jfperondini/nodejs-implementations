@@ -47,7 +47,7 @@ class Produto {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
             if (this.arrayProdutos[i].idProduto == idAtualizar) {
                 this.arrayProdutos[i].nomeProduto = prod.nomeProduto
-                //this.arrayProdutos[i].precoProduto = prod.precoProduto
+                this.arrayProdutos[i].precoProduto = prod.precoProduto
             }
 
         }
