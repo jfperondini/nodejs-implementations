@@ -47,9 +47,7 @@ class Produto {
         tbody.innerText = ''
 
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-            // let newText = document.createTextNode(this.arrayProdutos[i].id)
-            // newCell.appendChild(newText)
-
+     
             let newRow = tbody.insertRow(-1) //linha
 
             let colunaId = newRow.insertCell(0)
