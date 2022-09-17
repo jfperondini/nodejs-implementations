@@ -1,6 +1,6 @@
 class Produto {
     constructor() {
-        this.idProduto = 1
+        this.id = 1
         this.arrayProdutos = []
         this.editIdProduto = null
     }
@@ -45,7 +45,7 @@ class Produto {
 
     atualizar(idAtualizar, prod) {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-            if (this.arrayProdutos[i].idProduto == idAtualizar) {
+            if (this.arrayProdutos[i].id == idAtualizar) {
                 this.arrayProdutos[i].nomeProduto = prod.nomeProduto
                 this.arrayProdutos[i].precoProduto = prod.precoProduto
             }
@@ -56,7 +56,7 @@ class Produto {
     deletar(idDelete) {
         let tbody = document.getElementById('tbody')
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-            if (this.arrayProdutos[i].idProduto === idDelete) {
+            if (this.arrayProdutos[i].id === idDelete) {
                 this.arrayProdutos.splice(i, 1)
                 tbody.deleteRow(i)
             }
@@ -65,7 +65,7 @@ class Produto {
 
     lerDados() {
         let prod = {}
-        prod.idProduto = this.idProduto
+        prod.id = this.id
         prod.nomeProduto = document.getElementById('produto').value
         prod.precoProduto = document.getElementById('preco').value
         return prod
@@ -95,7 +95,7 @@ class Produto {
             let newRow = tbody.insertRow(-1) //linha
 
             let colunaId = newRow.insertCell(0)
-            colunaId.appendChild(document.createTextNode(this.arrayProdutos[i].idProduto))
+            colunaId.appendChild(document.createTextNode(this.arrayProdutos[i].id))
             colunaId.classList.add('center') 
 
             let colunaNome = newRow.insertCell(1)
@@ -111,7 +111,7 @@ class Produto {
 
             let imgDelete = document.createElement('img')
             imgDelete.src = '#'
-            imgDelete.setAttribute('onclick', 'produto.deletar(' + this.arrayProdutos[i].idProduto + ')')
+            imgDelete.setAttribute('onclick', 'produto.deletar(' + this.arrayProdutos[i].id + ')')
             
             colunaAcoes.appendChild(imgEdit)
             colunaAcoes.appendChild(imgDelete)
