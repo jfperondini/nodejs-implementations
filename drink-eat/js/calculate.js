@@ -15,5 +15,9 @@ function calculateEatDrinkBy() {
     resultDrinkFood = document.getElementById("resultFoodDrink").innerHTML = parseFloat
     (((priceFood / personFood) + resultDrink).toFixed(2))
 
+    if(resultDrink.value != 0) {
+        return resultDrink
+    } return 0
+
 };
 
