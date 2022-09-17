@@ -1,14 +1,18 @@
 
 
 function calculateEatDrinkBy() {
-   
+
     princeDrink = document.getElementById("priceFood").value
     personDrink = document.getElementById("food").value
-    resultDrink = document.getElementById("resultFood").innerHTML = princeDrink / personDrink;
     
+    resultDrink = document.getElementById("resultFood").innerHTML = 
+    parseFloat((princeDrink / personDrink).toFixed(2))
+    
+
     priceFood = document.getElementById("priceDrink").value
     personFood = document.getElementById("drink").value
-    resultDrink = document.getElementById("resultFoodDrink").innerHTML = (priceFood / personFood) + resultDrink;
+    
+    resultDrink = document.getElementById("resultFoodDrink").innerHTML = parseFloat(((priceFood / personFood) + resultDrink.toFixed(2))
 
 };
 
