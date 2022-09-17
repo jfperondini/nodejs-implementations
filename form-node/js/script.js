@@ -28,7 +28,7 @@ class Produto {
     }
 
     adicionar(prod) {
-        prod.preco = parseFloat(prod.precoProduto)        
+        //prod.preco = parseFloat(prod.precoProduto)        
         this.arrayProdutos.push(prod)
         this.id++
     }
