@@ -8,6 +8,7 @@ function calculateEatDrinkBy() {
     resultDrink = document.getElementById("resultFood").innerHTML = parseFloat
     ((princeDrink / personDrink).toFixed(2))
 
+
     priceFood = document.getElementById("priceDrink").value
     personFood = document.getElementById("drink").value
     
