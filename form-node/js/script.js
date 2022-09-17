@@ -100,7 +100,7 @@ class Produto {
     }
 
     editar(idEditar) {
-        this.editId = idEdit.id;
+        this.editId = idEditar.id;
 
         document.getElementById('produto').value = idEditar.nomeProduto
         document.getElementById('preco').value = idEditar.nomePreco
