@@ -9,7 +9,7 @@ function calculateEatDrinkBy() {
     ((princeDrink / personDrink).toFixed(2))
 
     if(isNaN(resultDrink)) {
-        return resultDrink = '0'
+        return resultDrink = 0
     }
 
     priceFood = document.getElementById("priceDrink").value
