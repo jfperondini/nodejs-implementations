@@ -8,10 +8,11 @@ class Produto {
         let prod = this.lerDados()
         if (this.validaCampos(prod) == true) {
             this.adicionar(prod)
-        }
+        }   
         console.log(this.arrayProdutos)
         this.listaTabela()
         this.cancelar()
+            
     }
 
     adicionar(prod) {
@@ -78,6 +79,7 @@ class Produto {
     cancelar() {
         prod.nomeProduto = document.getElementById('produto').value = ''
         prod.precoProduto = document.getElementById('preco').value = ''
+
     }
 
     deletar(idDelete) {
