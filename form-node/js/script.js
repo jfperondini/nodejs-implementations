@@ -3,17 +3,18 @@ class Produto {
         this.id = 1
         this.arrayProdutos = []
         this.editIdProduto = null
+        this.totalPrecoProduto = 0
     }
 
     salvar() {
         let prod = this.lerDados()
         if (this.validaCampos(prod) == true) {
             if (this.editIdProduto == null){
-            this.adicionar(prod)
+                this.adicionar(prod)
             } else { 
-            this.atualizar(this.editIdProduto, this.prod)
+                this.atualizar(this.editIdProduto, prod)
             }   
-        
+        }
         this.listaTabela()
         this.cancelar()    
         
@@ -43,6 +44,16 @@ class Produto {
         document.getElementById('mudarNameBtn').innerText = 'Atualizar'
 
     }
+
+
+    somarProduto(total) {
+        for (let i = 0; i < this.arrayProdutos.length; i++) {
+            total = totalPrecoProduto + this.arrayProdutos[i].precoProduto.value
+        }    
+        
+        document.getElementById('resultProduto').innerHTML = total
+    }
+
 
     atualizar(idAtualizar, prod) {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
@@ -119,6 +130,8 @@ class Produto {
 
         }
     }
+
+
 
 }
 
