@@ -48,10 +48,17 @@ class Produto {
     somarProduto(prod) {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
             prod.precoProduto = this.totalPrecoProduto + this.arrayProdutos[i].precoProduto    
-        }
+      }
     
-        document.getElementById('resultProduto').innerHTML = prod.precoProduto
-    
+        document.getElementById('resultProduto').innerHTML = prod
+  
+        
+ prod = arrayProdutos.reduce(accumulator, arrayProdutos) 
+=> accumulator + arrayProdutos[i].precoProduto, 0
+
+       
+
+
     }
 
 
