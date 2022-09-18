@@ -10,12 +10,13 @@ class Produto {
         if (this.validaCampos(prod) == true) {
             if (this.editIdProduto == null){
             this.adicionar(prod)
-            } else { this.atualizar(this.editIdProduto, this.prod)
-        }   
-        console.log(this.arrayProdutos)
+            } else { 
+            this.atualizar(this.editIdProduto, this.prod)
+            }   
+        
         this.listaTabela()
         this.cancelar()    
-        }
+        
     }
 
 
