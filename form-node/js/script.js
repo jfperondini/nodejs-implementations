@@ -28,7 +28,7 @@ class Produto {
     }
 
     adicionar(prod) {
-        //prod.preco = parseFloat(prod.precoProduto)        
+        prod.preco = parseFloat(prod.precoProduto)        
         this.arrayProdutos.push(prod)
         this.id++
     }
@@ -37,7 +37,7 @@ class Produto {
         this.editIdProduto = idEditar.idProduto;
 
         document.getElementById('produto').value = idEditar.nomeProduto
-        document.getElementById('preco').value = idEditar.nomePreco
+        document.getElementById('preco').value = idEditar.precoProduto
 
         document.getElementById('mudarNameBtn').innerText = 'Atualizar'
 
