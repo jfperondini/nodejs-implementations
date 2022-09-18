@@ -30,7 +30,6 @@ class Produto {
     }
 
     adicionar(prod) {
-        prod.preco = parseFloat(prod.precoProduto)        
         this.arrayProdutos.push(prod)
         this.id++
     }
@@ -46,12 +45,13 @@ class Produto {
     }
 
 
-    somarProduto(total) {
+    somarProduto(prod) {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-            total = totalPrecoProduto + this.arrayProdutos[i].precoProduto.value
-        }    
-        
-        document.getElementById('resultProduto').innerHTML = total
+            prod.precoProduto = this.totalPrecoProduto + this.arrayProdutos[i].precoProduto    
+        }
+    
+        document.getElementById('resultProduto').innerHTML = prod.precoProduto
+    
     }
 
 
