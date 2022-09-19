@@ -13,9 +13,12 @@
 
 <body>
     <nav class="navbar navbar-light bg-light container">
+        <nav class="navbar navbar-light bg-light">
+            <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
+        </nav>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="login.html">Sair<span class="sr-only"></span></a>
+                <a class="nav-link" href="../index.html">Sair<span class="sr-only"></span></a>
             </li>
         </ul>
     </nav>
@@ -37,7 +40,8 @@
                 <input type="text" class="form-control" id="idproduto" disabled="">
                 <br> -->
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary" onclick="produto.salvar()" id="mudarNameBtn">Salvar</button>
+                    <button type="submit" class="btn btn-primary" onclick="produto.salvar()"
+                        id="mudarNameBtn">Salvar</button>
                     <button type="submit" class="btn btn-danger" onclick="produto.cancelar()">Cancelar</button>
                 </div>
             </div>
@@ -64,20 +68,20 @@
         </div>
     </main>
     <br>
-    
+
     <main class="container">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-                 <h1>Total r$
-            <span id="resultProduto"></span>
-        </h1>
+                <h1>Total r$
+                    <span id="resultProduto"></span>
+                </h1>
             </div>
         </div>
-<br>
-<br>
-<br>
-<br>
-    
+        <br>
+        <br>
+        <br>
+        <br>
+
     </main>
     <script src="../js/script.js"></script>
 </body>

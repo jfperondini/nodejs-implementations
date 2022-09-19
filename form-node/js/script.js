@@ -3,21 +3,21 @@ class Produto {
         this.id = 1
         this.arrayProdutos = []
         this.editIdProduto = null
-        this.totalPrecoProduto = 0
+
     }
 
     salvar() {
         let prod = this.lerDados()
         if (this.validaCampos(prod) == true) {
-            if (this.editIdProduto == null){
+            if (this.editIdProduto == null) {
                 this.adicionar(prod)
-            } else { 
+            } else {
                 this.atualizar(this.editIdProduto, prod)
-            }   
+            }
         }
         this.listaTabela()
-        this.cancelar()    
-        
+        this.cancelar()
+
     }
 
 
@@ -45,19 +45,12 @@ class Produto {
     }
 
 
-    somarProduto(prod) {
+    somarProduto() {
+        let totalPrecoProduto = 0;
+
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-            prod.precoProduto = this.totalPrecoProduto + this.arrayProdutos[i].precoProduto    
-      }
-    
-        document.getElementById('resultProduto').innerHTML = prod
-  
-        
- prod = arrayProdutos.reduce(accumulator, arrayProdutos) 
-=> accumulator + arrayProdutos[i].precoProduto, 0
-
-       
-
+            totalPrecoProduto += this.arrayProdutos.length[i].precoProduto;
+        }
 
     }
 
@@ -110,28 +103,28 @@ class Produto {
         tbody.innerText = ''
 
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-     
+
             let newRow = tbody.insertRow(-1) //linha
 
             let colunaId = newRow.insertCell(0)
             colunaId.appendChild(document.createTextNode(this.arrayProdutos[i].id))
-            colunaId.classList.add('center') 
+            colunaId.classList.add('center')
 
             let colunaNome = newRow.insertCell(1)
             colunaNome.appendChild(document.createTextNode(this.arrayProdutos[i].nomeProduto))
-                
+
             let colunaPreco = newRow.insertCell(2)
             colunaPreco.appendChild(document.createTextNode(this.arrayProdutos[i].precoProduto))
 
             let colunaAcoes = newRow.insertCell(3)
             let imgEdit = document.createElement('img')
             imgEdit.src = '#',
-            imgEdit.setAttribute('onclick', 'produto.editar(' + JSON.stringify(this.arrayProdutos[i]) + ')')
+                imgEdit.setAttribute('onclick', 'produto.editar(' + JSON.stringify(this.arrayProdutos[i]) + ')')
 
             let imgDelete = document.createElement('img')
             imgDelete.src = '#'
             imgDelete.setAttribute('onclick', 'produto.deletar(' + this.arrayProdutos[i].id + ')')
-            
+
             colunaAcoes.appendChild(imgEdit)
             colunaAcoes.appendChild(imgDelete)
 
