@@ -2,21 +2,21 @@ class Produto {
     constructor() {
         this.id = 1
         this.arrayProdutos = []
-        this.editIdProduto = null
-
+        this.editId = null
     }
 
     salvar() {
         let prod = this.lerDados()
         if (this.validaCampos(prod) == true) {
-            if (this.editIdProduto == null) {
+            if (this.editId == null) {
                 this.adicionar(prod)
             } else {
-                this.atualizar(this.editIdProduto, prod)
+                this.atualizar(this.editId, prod)
             }
         }
         this.listaTabela()
         this.cancelar()
+        this.somarProduto()
 
     }
 
@@ -25,17 +25,18 @@ class Produto {
         document.getElementById('produto').value = ''
         document.getElementById('preco').value = ''
         document.getElementById('mudarNameBtn').innerText = 'Salvar'
-        this.editIdProduto = null
+        this.editId = null
 
     }
 
     adicionar(prod) {
+        prod.precoProduto = parseFloat(prod.precoProduto)
         this.arrayProdutos.push(prod)
         this.id++
     }
 
     editar(idEditar) {
-        this.editIdProduto = idEditar.idProduto;
+        this.editId = idEditar.idProduto;
 
         document.getElementById('produto').value = idEditar.nomeProduto
         document.getElementById('preco').value = idEditar.precoProduto
@@ -45,12 +46,14 @@ class Produto {
     }
 
 
-    somarProduto() {
+    somarProduto(prod) {
         let totalPrecoProduto = 0;
 
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-            totalPrecoProduto += this.arrayProdutos.length[i].precoProduto;
+            totalPrecoProduto += this.arrayProdutos[i].precoProduto
         }
+
+        document.getElementById('resultProduto').innerHTML = totalPrecoProduto
 
     }
 
@@ -134,7 +137,5 @@ class Produto {
 
 
 }
-
-
 
 let produto = new Produto()
