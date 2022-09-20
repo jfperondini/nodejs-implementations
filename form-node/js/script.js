@@ -7,7 +7,7 @@ class Produto {
 
     salvar() {
         let prod = this.lerDados()
-        if (this.validaCampos(prod) == true) {
+        if (this.validaCampos(prod)) {
             if (this.editId == null) {
                 this.adicionar(prod)
             } else {
@@ -46,16 +46,29 @@ class Produto {
     }
 
 
-    somarProduto(prod) {
-        let totalPrecoProduto = 0;
+    somarProduto() {   
+        
+        let totalPrecoProdutoSomados = 0;
 
         for (let i = 0; i < this.arrayProdutos.length; i++) {
-            totalPrecoProduto += this.arrayProdutos[i].precoProduto
+            totalPrecoProdutoSomados += this.arrayProdutos[i].precoProduto
         }
 
-        document.getElementById('resultProduto').innerHTML = totalPrecoProduto
+        document.getElementById('resultProduto').innerHTML = totalPrecoProdutoSomados
 
     }
+
+    subtrairProduto() {
+        let totalPrecoProdutoDiminuido = 0;
+
+        for (let i = 0; i < this.arrayProdutos.length; i++) {
+            totalPrecoProdutoDiminuido -= this.arrayProdutos[i].precoProduto
+        }
+
+        document.getElementById('resultProduto').innerHTML = totalPrecoProdutoDiminuido
+    }
+
+
 
 
     atualizar(idAtualizar, prod) {
@@ -73,9 +86,12 @@ class Produto {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
             if (this.arrayProdutos[i].id === idDelete) {
                 this.arrayProdutos.splice(i, 1)
+                this.subtrairProduto()
                 tbody.deleteRow(i)
+
             }
         }
+
     }
 
     lerDados() {
@@ -118,6 +134,7 @@ class Produto {
 
             let colunaPreco = newRow.insertCell(2)
             colunaPreco.appendChild(document.createTextNode(this.arrayProdutos[i].precoProduto))
+
 
             let colunaAcoes = newRow.insertCell(3)
             let imgEdit = document.createElement('img')
